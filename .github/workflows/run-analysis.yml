@@ -1,0 +1,29 @@
+name: Run analysis
+
+on:
+  push:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Run analysis
+        run: |
+          javac src/AnalyzeData.java
+          java -cp src AnalyzeData
+
+      - name: Upload summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: analysis-summary
+          path: results/summary.txt

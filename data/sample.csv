@@ -1,0 +1,7 @@
+sample_id,group,value
+P001,baseline,5.2
+P002,baseline,5.4
+P003,baseline,5.1
+P004,experiment,6.8
+P005,experiment,7.0
+P006,experiment,6.7
